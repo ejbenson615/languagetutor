@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+  <title>English Tutor</title>
+  <link
+    rel="shortcut icon"
+    href="{{ url_for('static', filename='book.PNG') }}"
+  />
+  <link rel="stylesheet" href="{{ url_for('static', filename='english.css') }}" />
+</head>
+
+<body>
+  <img src="{{ url_for('static', filename='book.PNG') }}" class="icon" />
+  <h3>English Tutor</h3>
+  <h5>Enter a sentence in English below. OpenAI will assess your response in terms of spelling, grammar, syntax, capitalization, and punctuation.</h5>
+  <form action="/english-tutor" method="post">
+    <textarea name="Sentence" placeholder="Enter your sentence" required /></textarea>
+    <input type="submit" value="Submit Sentence"/>
+  </form>
+  {% if result %}
+<div class="result">{{ result }}</div>
+  {% endif %}
+</body>
